@@ -1,6 +1,6 @@
 from mojo.events import EditingTool, installTool
 from mojo.drawingTools import *
-
+from AppKit import NSImage
 from fontTools.pens.cocoaPen import CocoaPen
 
 class PolygonSelectionTool(EditingTool):
@@ -44,9 +44,9 @@ class PolygonSelectionTool(EditingTool):
     def draw(self, scale):
         if self.pen is None:
             return
-        fill(0, .1)
-        stroke(0, .6)
-        strokeWidth(scale)
+        fill( 1 , 0 , 0 , .2 )
+        #stroke(0, .6)
+        #strokeWidth(scale)
         drawPath(self.pen.path)
     
     def canSelectWithMarque(self):
@@ -54,6 +54,11 @@ class PolygonSelectionTool(EditingTool):
     
     def getToolbarTip(self):
         return "Polygon Selection Tool"
+
+    def getToolbarIcon(self):
+        icon = NSImage.alloc().initWithContentsOfFile_("polygon-select.png")
+        if icon :
+            return icon 
         
     
 installTool(PolygonSelectionTool())
