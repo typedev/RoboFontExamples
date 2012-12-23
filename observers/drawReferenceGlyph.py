@@ -21,13 +21,13 @@ class DrawReferenceGlyph(object):
         b = 0
         a = .5
         
-        if glyph is not None and glyph.unicode is not None:
+        #if glyph is not None and glyph.unicode is not None:
+        if glyph.unicode is not None:
             t = unichr(glyph.unicode)
-            
             font("Georgia", 100)
             stroke(None)
             fill(r, g, b, a)
-            text(t, (glyph.width + 10, 10))
-            
+            text(t, (glyph.width + 25, -110))
+        
             
 DrawReferenceGlyph()
